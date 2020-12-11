@@ -241,7 +241,7 @@ header.active .thu{
   padding-bottom: 100%;
 }
 .custom-layout {
-  height: 415px;
+  height: 445px;
   width: 75%;
   margin: 0 auto;
 }
@@ -308,5 +308,9 @@ header.active .thu{
   .custom-img-2 {
     width: 75%;
     transform: translate(25%,25%);
+  }
+  .with-border.with-border-left::before {
+    left: 0;
+    transform: translateX(0);
   }
 }
