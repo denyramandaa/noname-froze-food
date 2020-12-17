@@ -1,3 +1,25 @@
+::-webkit-input-placeholder {
+  color:#fff !important;
+}
+
+::-moz-placeholder {
+  color:#fff !important;
+}
+
+::-ms-placeholder {
+  color:#fff !important;
+}
+
+::placeholder {
+  color:#fff !important;
+}
+
+.nav-text:hover {
+  border-color: #DC1919;
+}
+/* .nav-our-product:hover + .sub-menu-product {
+  display: block;
+} */
 :focus {
   outline: none;
 }

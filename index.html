@@ -16,25 +16,60 @@
       <div class="max-w-6xl mx-auto flex justify-between py-6">
         <div class="logo"><a href="#"><img src="assets/icon/logo.png" alt="logo"></a></div>
         <div class="justify-center items-center hidden lg:flex">
-          <div v-for="i in menus" class="px-4">
-            <div class="capitalize font-bold txt-grey cursor-pointer" @click="gointTo(i.url)">{{ i.name }}</div>
+          <div class="px-4">
+            <div class="capitalize font-bold txt-grey cursor-pointer pb-2 border-b border-transparent nav-text" onclick="gointTo('about-us')">about us</div>
+          </div>
+          <div class="px-4 relative">
+            <div class="capitalize font-bold txt-grey cursor-pointer pb-2 border-b border-transparent nav-text nav-our-product">our product</div>
+            <div class="absolute sub-menu-product p-4 bg-gray-100 hidden">
+              <div class="font-lora txt-grey py-2 border-yellow-fry border-b cursor-pointer">Pasta</div>
+              <div class="font-lora txt-grey py-2 border-yellow-fry border-b cursor-pointer">Meatballs</div>
+              <div class="font-lora txt-grey py-2 cursor-pointer">Sushi</div>
+            </div>
+          </div>
+          <div class="px-4">
+            <div class="capitalize font-bold txt-grey cursor-pointer pb-2 border-b border-transparent nav-text" onclick="gointTo('why-us')">why us?</div>
+          </div>
+          <div class="px-4">
+            <div class="capitalize font-bold txt-grey cursor-pointer pb-2 border-b border-transparent nav-text" onclick="gointTo('our-gallery')">gallery</div>
+          </div>
+          <div class="px-4">
+            <div class="capitalize font-bold txt-grey cursor-pointer pb-2 border-b border-transparent nav-text" onclick="gointTo('articles')">articles</div>
+          </div>
+          <div class="px-4">
+            <div class="capitalize font-bold txt-grey cursor-pointer pb-2 border-b border-transparent nav-text" onclick="gointTo('contact-us')">contact us</div>
           </div>
         </div>
-        <div class="burger-menu block lg:hidden" @click="openMenu = true">
+        <div class="burger-menu block lg:hidden" onclick="openMenu()">
           <img src="assets/icon/burger.png" alt="burger-icon">
         </div>
       </div>
     </header>
-    <section class="overlay-side min-h-screen fixed top-0 left-0 z-50 w-full" v-if="openMenu" @click="openMenu = false"></section>
-    <section class="side-menu fixed right-0 top-0 z-50 block lg:hidden w-4/6 bg-white" :class="{ 'show' : openMenu }">
+    <section class="overlay-side min-h-screen fixed top-0 left-0 z-50 w-full hidden" onclick="closeMenu()"></section>
+    <section class="side-menu fixed right-0 top-0 z-50 block lg:hidden w-4/6 bg-white">
       <div class="relative min-h-screen flex items-center mx-8">
-        <div class="close-menu absolute right-0" @click="openMenu = false">
+        <div class="close-menu absolute right-0" onclick="closeMenu()">
           <img src="assets/icon/close.png" alt="close-icon">
         </div>
         <div class="w-full">
             <div class="logo mb-6"><img src="assets/icon/logo.png" alt="logo"></div>
-            <div v-for="(i, key) in menus" class="text-center border-yellow-fry" :class="{ 'border-b' : key != menus.length-1 }">
-              <div class="capitalize txt-grey block w-full py-6" @click="gointTo(i.url)">{{ i.name }}</div>
+            <div class="text-center border-yellow-fry border-b">
+              <div class="capitalize txt-grey block w-full py-6" onclick="gointTo('about-us')">about us</div>
+            </div>
+            <div class="text-center border-yellow-fry border-b">
+              <div class="capitalize txt-grey block w-full py-6" onclick="gointTo('our-product')">our product</div>
+            </div>
+            <div class="text-center border-yellow-fry border-b">
+              <div class="capitalize txt-grey block w-full py-6" onclick="gointTo('why-us')">why us?</div>
+            </div>
+            <div class="text-center border-yellow-fry border-b">
+              <div class="capitalize txt-grey block w-full py-6" onclick="gointTo('our-gallery')">gallery</div>
+            </div>
+            <div class="text-center border-yellow-fry border-b">
+              <div class="capitalize txt-grey block w-full py-6" onclick="gointTo('articles')">articles</div>
+            </div>
+            <div class="text-center">
+              <div class="capitalize txt-grey block w-full py-6" onclick="gointTo('contact-us')">contact us</div>
             </div>
         </div>
       </div>
@@ -43,7 +78,10 @@
     <section class="jumbotron bg-white w-full">
       <div class="swiper-container swiper--jumbotron absolute left-0 top-0 h-full w-full">
         <div class="swiper-wrapper">
-          <div v-for="i in jumbotronImage" class="swiper-slide min-h-screen w-full bg-cover bg-center" :style="{ 'background-image': 'url(assets/img/' + i + ')' }"></div>
+          <div class="swiper-slide min-h-screen w-full bg-cover bg-center" style="background-image: url('assets/img/01.jpg')"></div>
+          <div class="swiper-slide min-h-screen w-full bg-cover bg-center" style="background-image: url('assets/img/cov1.jpg')"></div>
+          <div class="swiper-slide min-h-screen w-full bg-cover bg-center" style="background-image: url('assets/img/cov2.jpg')"></div>
+          <div class="swiper-slide min-h-screen w-full bg-cover bg-center" style="background-image: url('assets/img/cov3.jpg')"></div>
         </div>
       </div>
       <div class="min-h-screen max-w-6xl mx-auto relative z-5 flex justify-center items-center">
@@ -63,7 +101,7 @@
       </div>
     </section>
 
-    <section class="bg-white w-full py-24" id="about-us">
+    <section class="bg-white w-full pt-24 lg:py-24" id="about-us">
       <div class="max-w-4xl mx-auto">
         <div class="lg:flex lg:-mx-4">
           <div class="lg:w-1/2 px-6 mb-12 lg:mb-0 lg:px-4 text-center lg:text-left">
@@ -83,7 +121,7 @@
       </div>
     </section>
 
-    <section class="bg-white w-full py-24" id="our-product">
+    <section class="bg-white w-full pt-24 lg:py-24" id="our-product">
       <div class="max-w-6xl mx-auto">
         <div class="max-w-2xl mx-auto text-center">
           <h3 class="font-bold font-lora txt-grey text-4xl lg:text-5xl pb-6 with-border relative">Our Product</h3>
@@ -160,7 +198,7 @@
       </div>
     </section>
 
-    <section class="bg-white w-full py-24" id="our-gallery">
+    <section class="bg-white w-full pt-24 lg:py-24" id="our-gallery">
       <div class="max-w-6xl mx-auto">
         <div class="max-w-2xl mx-auto text-center">
           <h3 class="font-bold font-lora txt-grey text-4xl lg:text-5xl pb-6 with-border relative">Our Gallery</h3>
@@ -170,8 +208,14 @@
       <div class="w-full mt-8 lg:mt-16 relative">
         <div class="swiper-container swiper--products h-full w-full">
           <div class="swiper-wrapper flex">
-            <div v-for="(i, key) in products" class="swiper-slide flex flex-wrap px-4 w-1/2">
-              <img :src="'assets/img/' + i" alt="product">
+            <div class="swiper-slide flex flex-wrap px-4 w-1/2">
+              <img src="assets/img/09.jpg" alt="product">
+            </div>
+            <div class="swiper-slide flex flex-wrap px-4 w-1/2">
+              <img src="assets/img/11.jpg" alt="product">
+            </div>
+            <div class="swiper-slide flex flex-wrap px-4 w-1/2">
+              <img src="assets/img/03.jpg" alt="product">
             </div>
           </div>
         </div>
@@ -216,10 +260,10 @@
             <h4 class="text-2xl mt-4 font-lora font-bold txt-grey"><a href="#">Lorem Ipsum</a></h4>
             <p class="mt-4 txt-grey mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque at neque duis orci morbi vestibulum.</p>
           </div>
-          <div class="lg:w-1/3 px-6 mb-12 lg:mb-8 lg:px-4">
+          <div class="lg:w-1/3 px-6 lg:mb-8 lg:px-4">
             <img src="assets/img/08.jpg" alt="product">
             <h4 class="text-2xl mt-4 font-lora font-bold txt-grey"><a href="#">Lorem Ipsum</a></h4>
-            <p class="mt-4 txt-grey mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque at neque duis orci morbi vestibulum.</p>
+            <p class="mt-4 txt-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque at neque duis orci morbi vestibulum.</p>
           </div>
         </div>
       </div>
@@ -349,7 +393,7 @@
     </div>
   </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js?ver=2.6.10"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js?ver=4.5.0"></script>
   <script src="assets/js/app.js"></script>
 </body>
